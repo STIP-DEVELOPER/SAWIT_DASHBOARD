@@ -89,7 +89,7 @@ export default function ListAdminView() {
     },
     {
       field: "email",
-      renderHeader: () => <strong>{"WA"}</strong>,
+      renderHeader: () => <strong>{"E-MAIL"}</strong>,
       editable: true,
     },
     {

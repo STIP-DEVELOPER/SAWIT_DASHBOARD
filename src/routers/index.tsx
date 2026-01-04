@@ -16,6 +16,7 @@ import EditDeviceView from "../pages/device/EditDeviceView";
 import DetailDeviceView from "../pages/device/DetailDeviceView";
 import ListLogsView from "../pages/logs/ListLogsView";
 import PerformanceView from "../pages/performances/PerformanceView";
+import LocationView from "../pages/location/LocationView";
 
 const getProtectedRouters = (role: string) => {
   const mainRouters: { path: string; element: JSX.Element }[] = [];
@@ -58,6 +59,12 @@ const getProtectedRouters = (role: string) => {
     {
       path: "/performances",
       element: <PerformanceView />,
+    },
+
+    // module router
+    {
+      path: "/locations",
+      element: <LocationView />,
     },
     // module router
     {

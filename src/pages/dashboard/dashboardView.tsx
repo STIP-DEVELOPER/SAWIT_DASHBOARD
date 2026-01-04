@@ -6,8 +6,9 @@ import { useHttp } from "../../hooks/http";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { IStatisticModel } from "../../models/statisticModel";
-import ReactApexChart from "react-apexcharts";
+// import ReactApexChart from "react-apexcharts";
 import ListLogsView from "../logs/ListLogsView";
+import LoadingBackdrop from "../../components/loading/Loading";
 
 const DashboardView = () => {
   const { handleGetRequest } = useHttp();
@@ -40,7 +41,7 @@ const DashboardView = () => {
     handleGetStatistic();
   }, []);
 
-  if (isLoading) return "laoding...";
+  if (isLoading) return <LoadingBackdrop open={isLoading} />;
 
   return (
     <Box>
@@ -97,7 +98,7 @@ const DashboardView = () => {
         </Grid>
 
         <Grid container spacing={3} mt={5}>
-          <Grid item xs={12} md={12}>
+          {/* <Grid item xs={12} md={12}>
             <Typography variant="h6" mb={2}>
               Aktivitas Penggunaan Device
             </Typography>
@@ -158,7 +159,7 @@ const DashboardView = () => {
                 height={350}
               />
             </Card>
-          </Grid>
+          </Grid> */}
           <Grid item xs={12}>
             <Card>
               <Typography variant="h6" mb={2}>

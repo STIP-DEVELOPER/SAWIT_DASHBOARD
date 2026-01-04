@@ -9,7 +9,7 @@ import {
   GridToolbarContainer,
   GridToolbarExport,
 } from "@mui/x-data-grid";
-import { Add } from "@mui/icons-material";
+import { Add, MoreOutlined } from "@mui/icons-material";
 import { useEffect, useState } from "react";
 import { useHttp } from "../../hooks/http";
 import { Button, Chip, Stack, TextField } from "@mui/material";
@@ -113,15 +113,21 @@ export default function ListDeviceView() {
       },
     },
     {
-      field: "distance",
+      field: "fertilizeType",
       flex: 1,
-      renderHeader: () => <strong>{"JARAK (CM)"}</strong>,
+      renderHeader: () => <strong>{"TIPE"}</strong>,
       editable: true,
     },
     {
       field: "fertilizerVolume",
       flex: 1,
-      renderHeader: () => <strong>{"BERAT (GRAM)"}</strong>,
+      renderHeader: () => <strong>{"BERAT (KG)"}</strong>,
+      editable: true,
+    },
+    {
+      field: "speed",
+      flex: 1,
+      renderHeader: () => <strong>{"KECEPATAN (KM/H)"}</strong>,
       editable: true,
     },
     {
@@ -131,7 +137,6 @@ export default function ListDeviceView() {
       flex: 1,
       cellClassName: "actions",
       getActions: ({ row }) => {
-        console.log(row);
         return [
           <GridActionsCellItem
             icon={<EditIcon />}
@@ -144,6 +149,12 @@ export default function ListDeviceView() {
             icon={<DeleteIcon color="error" />}
             label="Delete"
             onClick={() => handleOpenModalDelete(row)}
+            color="inherit"
+          />,
+          <GridActionsCellItem
+            icon={<MoreOutlined color="info" />}
+            label="Detail"
+            onClick={() => navigation("/devices/detail/" + row.id)}
             color="inherit"
           />,
         ];
